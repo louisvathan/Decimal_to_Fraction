@@ -1,0 +1,62 @@
+<MyRoot>:
+	
+	output_label: output_label
+	decimal_input: decimal_input
+	
+	BoxLayout:
+		orientation : "vertical"
+		Label:
+			text: "Decimal to Fraction Convertor"
+			font_size: 64
+			color: 0.92, 0.45, 0
+		GridLayout:
+			rows:1
+			cols:2
+			Label:
+				text: "Enter Decimal Value"
+			TextInput:
+				id: decimal_input
+				input_type: "number"
+				helper_text_mode: "on-focus"
+				hint_text: "0.15625"
+				multiline: False
+				input_filter: "float"
+				halign: "center"
+				padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+		GridLayout:
+			rows:1
+			cols: 2
+			Label:
+				text: "Denominator"
+			Spinner:
+				text: "64"
+				values: ["64", "32", "16", "8", "4", "2", "1"]
+				on_text: root.denominator_select(self.text)
+		GridLayout:
+			rows:1
+			cols:2
+			Label:
+				text: "Rounding"
+			Spinner:
+				text: "Round to Nearest Fraction"
+				values: ["Round to Nearest Fraction", "Round to Next Fraction", "Round to Previous Fraction", "No Rounding"]
+				on_text: root.rounding_select(self.text)
+		GridLayout:
+			rows:1
+			cols:2
+			Label:
+				text: "Middle Condition"
+			Spinner:
+				text: "to Next"
+				values: ["to Next", "to Previous"]
+				on_text: root.middle_condition_select(self.text)
+		Button:
+			text: "Convert"
+			font_size: 64
+			size: 100, 50
+			on_press: root.button_trigger()
+		Label:
+			id: output_label
+			text: "-"
+			font_size: 64
+			 
