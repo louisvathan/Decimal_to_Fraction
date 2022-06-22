@@ -1,4 +1,4 @@
-#:kivy !
+#:kivy 2.1.0
 <MyRoot>:
 	
 	output_label: output_label
@@ -8,7 +8,7 @@
 		orientation : "vertical"
 		Label:
 			text: "Decimal to Fraction Convertor"
-			font_size: 64
+			font_size: 32
 			color: 0.92, 0.45, 0
 		GridLayout:
 			rows:1
@@ -53,11 +53,11 @@
 				on_text: root.middle_condition_select(self.text)
 		Button:
 			text: "Convert"
-			font_size: 64
+			font_size: 32
 			size: 100, 50
 			on_press: root.button_trigger()
 		Label:
 			id: output_label
 			text: "-"
-			font_size: 64
+			font_size: 32
 			 

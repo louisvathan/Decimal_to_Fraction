@@ -2,6 +2,7 @@ import kivy
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 
+kivy.require("2.1.0")
 
 from frac_conv_func import decimal_to_fraction
 
