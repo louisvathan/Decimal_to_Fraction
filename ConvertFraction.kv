@@ -1,4 +1,4 @@
-#:kivy 2.1.0
+#:kivy 2.0.0
 <MyRoot>:
 	
 	output_label: output_label
@@ -8,7 +8,7 @@
 		orientation : "vertical"
 		Label:
 			text: "Decimal to Fraction Convertor"
-			font_size: 32
+			font_size: self.width/20
 			color: 0.92, 0.45, 0
 		GridLayout:
 			rows:1
@@ -19,7 +19,8 @@
 				id: decimal_input
 				input_type: "number"
 				helper_text_mode: "on-focus"
-				hint_text: "0.15625"
+				#on_text_validate:  root.button_trigger()
+				hint_text: "e.g. 0.15625"
 				multiline: False
 				input_filter: "float"
 				halign: "center"
@@ -53,11 +54,11 @@
 				on_text: root.middle_condition_select(self.text)
 		Button:
 			text: "Convert"
-			font_size: 32
+			font_size: self.width/20
 			size: 100, 50
 			on_press: root.button_trigger()
 		Label:
 			id: output_label
 			text: "-"
-			font_size: 32
+			font_size: self.width/20
 			 
