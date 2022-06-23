@@ -6,8 +6,9 @@ Config.set('graphics', 'minimum_width', '400')
 Config.set('graphics', 'minimum_height', '300')
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
+from kivy.utils import platform
+from kivy.properties import StringProperty
 
-from tkinter import Tk
 
 kivy.require("2.0.0")
 
@@ -43,29 +44,25 @@ class MyRoot(BoxLayout):
 		self.operation()
 		
 	def operation(self):
-		if self.decimal_input.text == "":
+		if self.decimal_input.text == "" or self.decimal_input.text == "-":
 			self.output_label.text = "-"
 		else:
-			decimal = self.decimal_input.text
+			decimal = float(self.decimal_input.text)
 			self.output_label.text = decimal_to_fraction(float(decimal), int(self.denominator), self.rounding, self.middle_condition)
-
-	def copy_using_tkinter(self, t):
-		r = Tk()
-		r.withdraw()
-		r.clipboard_clear()
-		r.clipboard_append(t)
-		r.update() # now it stays on the clipboard after the window is closed
-		r.destroy()
 
 	def copy(self):
 		if self.output_label.text == "-" and self.decimal_input.text == "":
 			pass
 		else:
 			self.operation()
-			# self.copy_using_tkinter(self.output_label.text)
 
 	
 class ConvertFraction(App):
+
+	if platform != 'android':
+		size_x = StringProperty(0.85)
+	else:
+		size_x = StringProperty(0.75)
 	
 	def build(self):
 		return MyRoot()
