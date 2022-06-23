@@ -7,7 +7,7 @@ Config.set('graphics', 'minimum_height', '300')
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 
-import pyperclip
+from tkinter import Tk
 
 kivy.require("2.0.0")
 
@@ -49,12 +49,20 @@ class MyRoot(BoxLayout):
 			decimal = self.decimal_input.text
 			self.output_label.text = decimal_to_fraction(float(decimal), int(self.denominator), self.rounding, self.middle_condition)
 
+	def copy_using_tkinter(self, t):
+		r = Tk()
+		r.withdraw()
+		r.clipboard_clear()
+		r.clipboard_append(t)
+		r.update() # now it stays on the clipboard after the window is closed
+		r.destroy()
+
 	def copy(self):
 		if self.output_label.text == "-" and self.decimal_input.text == "":
-			pyperclip.copy("")
+			pass
 		else:
 			self.operation()
-			pyperclip.copy(self.output_label.text)
+			self.copy_using_tkinter(self.output_label.text)
 
 	
 class ConvertFraction(App):
