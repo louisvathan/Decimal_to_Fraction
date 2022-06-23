@@ -72,10 +72,12 @@
 			Label:
 				id: output_label
 				text: "-"
-				size_hint_x: 0.85
+				size_hint_x: app.size_x
+				# size_hint_x: self.width*0.85
 				font_size: self.width/20
 			Button:
-				size_hint_x: 0.15
+				size_hint_x: 1 - app.size_x
+				# size_hint_x: self.width*0.15
 				background_normal: 'copy_to_clipboard.png'
 				background_down: 'copy_to_clipboard_white.png'
 				on_press: root.copy()
