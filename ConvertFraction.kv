@@ -1,4 +1,5 @@
 #:kivy 2.0.0
+#:import Clipboard kivy.core.clipboard.Clipboard
 <MyRoot>:
 	
 	output_label: output_label
@@ -78,3 +79,4 @@
 				background_normal: 'copy_to_clipboard.png'
 				background_down: 'copy_to_clipboard_white.png'
 				on_press: root.copy()
+				on_release: Clipboard.copy(output_label.text)

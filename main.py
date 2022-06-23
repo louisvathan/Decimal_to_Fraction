@@ -62,7 +62,7 @@ class MyRoot(BoxLayout):
 			pass
 		else:
 			self.operation()
-			self.copy_using_tkinter(self.output_label.text)
+			# self.copy_using_tkinter(self.output_label.text)
 
 	
 class ConvertFraction(App):
