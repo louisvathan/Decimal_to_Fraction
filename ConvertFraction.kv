@@ -3,6 +3,9 @@
 	
 	output_label: output_label
 	decimal_input: decimal_input
+	denominator_input: denominator_input
+	rounding_input: rounding_input
+	middle_condition_input: middle_condition_input
 	
 	BoxLayout:
 		orientation : "vertical"
@@ -20,7 +23,7 @@
 				id: decimal_input
 				input_type: "number"
 				helper_text_mode: "on-focus"
-				#on_text_validate:  root.button_trigger()
+				on_text_validate:  root.operation()
 				hint_text: "e.g. 0.15625"
 				font_size: self.width/20
 				multiline: False
@@ -34,6 +37,7 @@
 				text: "Denominator"
 				font_size: self.width/20
 			Spinner:
+				id: denominator_input
 				text: "64"
 				font_size: self.width/20
 				values: ["64", "32", "16", "8", "4", "2", "1"]
@@ -45,6 +49,7 @@
 				text: "Rounding"
 				font_size: self.width/20
 			Spinner:
+				id: rounding_input
 				text: "Round to Nearest Fraction"
 				font_size: self.width/20
 				values: ["Round to Nearest Fraction", "Round to Next Fraction", "Round to Previous Fraction", "No Rounding"]
@@ -56,17 +61,20 @@
 				text: "Middle Condition"
 				font_size: self.width/20
 			Spinner:
+				id: middle_condition_input
 				text: "to Next"
 				font_size: self.width/20
 				values: ["to Next", "to Previous"]
 				on_text: root.middle_condition_select(self.text)
-		Button:
-			text: "Convert"
-			font_size: self.width/20
-			size: 100, 50
-			on_press: root.button_trigger()
-		Label:
-			id: output_label
-			text: "-"
-			font_size: self.width/20
-			 
+		BoxLayout:
+			orientation: 'horizontal'
+			Label:
+				id: output_label
+				text: "-"
+				size_hint_x: 0.85
+				font_size: self.width/20
+			Button:
+				size_hint_x: 0.15
+				background_normal: 'copy_to_clipboard.png'
+				background_down: 'copy_to_clipboard_white.png'
+				on_press: root.copy()

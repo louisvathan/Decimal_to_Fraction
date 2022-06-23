@@ -116,7 +116,6 @@ def decimal_to_fraction(x, denominator, rounding, middle_condition):
 		if len(sixtyfourth[i]) > 6:
 			ones[i] = sixtyfourth[i]
 
-	
 	whole_num, deci_num = floor(x), x-floor(x)
 
 	if denominator == 64:
