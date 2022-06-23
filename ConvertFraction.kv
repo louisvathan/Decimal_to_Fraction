@@ -15,12 +15,14 @@
 			cols:2
 			Label:
 				text: "Enter Decimal Value"
+				font_size: self.width/20
 			TextInput:
 				id: decimal_input
 				input_type: "number"
 				helper_text_mode: "on-focus"
 				#on_text_validate:  root.button_trigger()
 				hint_text: "e.g. 0.15625"
+				font_size: self.width/20
 				multiline: False
 				input_filter: "float"
 				halign: "center"
@@ -30,8 +32,10 @@
 			cols: 2
 			Label:
 				text: "Denominator"
+				font_size: self.width/20
 			Spinner:
 				text: "64"
+				font_size: self.width/20
 				values: ["64", "32", "16", "8", "4", "2", "1"]
 				on_text: root.denominator_select(self.text)
 		GridLayout:
@@ -39,8 +43,10 @@
 			cols:2
 			Label:
 				text: "Rounding"
+				font_size: self.width/20
 			Spinner:
 				text: "Round to Nearest Fraction"
+				font_size: self.width/20
 				values: ["Round to Nearest Fraction", "Round to Next Fraction", "Round to Previous Fraction", "No Rounding"]
 				on_text: root.rounding_select(self.text)
 		GridLayout:
@@ -48,8 +54,10 @@
 			cols:2
 			Label:
 				text: "Middle Condition"
+				font_size: self.width/20
 			Spinner:
 				text: "to Next"
+				font_size: self.width/20
 				values: ["to Next", "to Previous"]
 				on_text: root.middle_condition_select(self.text)
 		Button:
