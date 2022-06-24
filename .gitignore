@@ -1,5 +1,9 @@
 .kivy
 d2f/
+support files/
+APK_Convert/
+EXE_Convert/
+others/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -130,3 +134,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.gitignore
