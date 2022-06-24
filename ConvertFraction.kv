@@ -19,14 +19,14 @@
 			cols:2
 			Label:
 				text: "Enter Decimal Value"
-				font_size: self.width/20
+				font_size: self.width/15
 			TextInput:
 				id: decimal_input
 				input_type: "number"
 				helper_text_mode: "on-focus"
 				on_text_validate:  root.operation()
 				hint_text: "e.g. 0.15625"
-				font_size: self.width/20
+				font_size: self.width/15
 				multiline: False
 				input_filter: "float"
 				halign: "center"
@@ -36,11 +36,11 @@
 			cols: 2
 			Label:
 				text: "Denominator"
-				font_size: self.width/20
+				font_size: self.width/15
 			Spinner:
 				id: denominator_input
 				text: "64"
-				font_size: self.width/20
+				font_size: self.width/15
 				values: ["64", "32", "16", "8", "4", "2", "1"]
 				on_text: root.denominator_select(self.text)
 		GridLayout:
@@ -48,11 +48,11 @@
 			cols:2
 			Label:
 				text: "Rounding"
-				font_size: self.width/20
+				font_size: self.width/15
 			Spinner:
 				id: rounding_input
 				text: "Round to Nearest Fraction"
-				font_size: self.width/20
+				font_size: self.width/15
 				values: ["Round to Nearest Fraction", "Round to Next Fraction", "Round to Previous Fraction", "No Rounding"]
 				on_text: root.rounding_select(self.text)
 		GridLayout:
@@ -60,11 +60,11 @@
 			cols:2
 			Label:
 				text: "Middle Condition"
-				font_size: self.width/20
+				font_size: self.width/15
 			Spinner:
 				id: middle_condition_input
 				text: "to Next"
-				font_size: self.width/20
+				font_size: self.width/15
 				values: ["to Next", "to Previous"]
 				on_text: root.middle_condition_select(self.text)
 		BoxLayout:
@@ -74,7 +74,7 @@
 				text: "-"
 				size_hint_x: app.size_x
 				# size_hint_x: self.width*0.85
-				font_size: self.width/20
+				font_size: self.width/15
 			Button:
 				size_hint_x: 1 - app.size_x
 				# size_hint_x: self.width*0.15
